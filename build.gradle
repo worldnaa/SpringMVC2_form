@@ -19,7 +19,9 @@ repositories {
 }
 
 dependencies {
+	// Gradle은 타임리프와 관련된 라이브러리를 다운로드 받고, 스프링부트는 타임리프와 관련된 설정용 스프링 빈을 자동으로 등록
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

@@ -32,7 +32,11 @@ public class FormItemController {
     }
 
     @GetMapping("/add")
-    public String addForm() {
+    public String addForm(Model model) {
+        // th:object 를 적용하려면 먼저 해당 오브젝트 정보를 넘겨주어야 한다.
+        // 등록 폼이기 때문에 데이터가 비어있는 빈 오브젝트를 만들어서 뷰에 전달.
+        // addForm.html 에서 th:object, th:field 를 사용하기 위해 빈 객체 생성 (new Item())
+        model.addAttribute("item", new Item());
         return "form/addForm";
     }
 
@@ -46,6 +50,7 @@ public class FormItemController {
 
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
+        // th:object 를 적용하려면 먼저 해당 오브젝트 정보를 넘겨주어야 한다.
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
         return "form/editForm";

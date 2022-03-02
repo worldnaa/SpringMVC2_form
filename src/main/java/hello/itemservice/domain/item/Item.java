@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Item {
-    //아이템
+
     private Long id;
     private String itemName;
     private Integer price;
